@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>平台风采</title>
+</head>
+<head>
+    <meta charset="UTF-8" name="viewport" content="with=device-width,initial-scale=1,user-scalable=no">
+    <title></title>
+    <!--加载外部资源-->
+    <link rel="short icon" href="Resource/icon.png">
+
+    <!--链入CSS-->
+    <link rel="stylesheet" href="ExternalStyle.css">
+    <style>
+        .DS_second_one_section img{
+            width: 100%;
+        }
+
+        article {
+            margin: 20px;
+        }
+
+        h3 {
+            color: red;
+            font-size: 18px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid #dddddd;
+        }
+
+        h4 {
+            font-size: 14px;
+        }
+
+        article p {
+            text-indent: 2em;
+            line-height: 2em;
+            font-size: 12px;
+        }
+    </style>
+
+</head>
+    <body>
+    <header class="DS_header">
+        <span>小滴服务</span>
+    </header>
+
+    <section class="DS_second_one_section">
+        <img src="Resource/banner4.png" alt="">
+    </section>
+
+    <article>
+        <h3 id="P_tile">
+
+        </h3>
+        <h4 id="P_name">
+
+        </h4>
+        <P class="P_content" id="P_content">
+
+        </P>
+    </article>
+    <footer class="DS_footer">
+        <ul>
+            <li>
+                <a href="DropletService.html">
+                    <img src="Resource/nav11.png">
+                    <span >小滴服务</span>
+                </a>
+            </li>
+            <li>
+                <a href="BusinessProjec.html">
+                    <img src="Resource/nav20.png">
+                    <span>企业项目</span>
+                </a>
+            </li>
+            <li>
+                <a href="ServiceProces.html">
+                    <img src="Resource/nav30.png">
+                    <span>服务流程</span>
+                </a>
+            </li>
+            <li>
+                <a href="Platform.html">
+                    <img src="Resource/nav40.png">
+                    <span style="color: red">平台风采</span>
+                </a>
+            </li>
+            <li>
+                <a href="MyDroplet.html">
+                    <img src="Resource/nav50.png">
+                    <span>我的小滴</span>
+                </a>
+            </li>
+        </ul>
+    </footer>
+    </body>
+    <script>
+        var xhr = new XMLHttpRequest();
+        //2.建立服务端连接（找到哪个服务器去要数据）
+        xhr.open('get','https://mockapi.eolinker.com/2ZhGVxjacb39010e6753bd9c02ee803e6e3bfeab6e8007c/aboutus');
+
+        xhr.send();
+
+        //5.接受服务端返回的数据
+        xhr.onreadystatechange = function () {
+            if (xhr.readyState == 4 && xhr.status == 200){
+                var resData = JSON.parse(xhr.responseText);
+                document.getElementById("P_tile").innerHTML = resData.data.title;
+                document.getElementById("P_name").innerHTML = resData.data.subTitle;
+                document.getElementById("P_content").innerHTML = resData.data.info;
+
+            }
+        }
+    </script>
+</html>

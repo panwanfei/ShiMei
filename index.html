@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" name="viewport" content="with=device-width,initial-scale=1,user-scalable=no">
+    <title>企业项目</title>
+    <link rel="short icon" href="Resource/icon.png">
+    <!--链入CSS-->
+    <link rel="stylesheet" href="ExternalStyle.css">
+    <style>
+        .L_second_div {
+            text-align: center;
+        }
+
+        .L_head_img {
+            margin-top: 50px;
+        }
+
+        .L_form_inner_div {
+            width: 90%;
+            margin: 0 auto;
+            border: 1px solid #cccccc;
+            border-radius: 5px;
+            background: white;
+            margin-top: 30px;
+            height: 100px;
+
+        }
+
+        .L_form_inner_div div span {
+            padding-left: 15px;
+            font-size: 20px;
+            line-height: 50px
+        }
+
+        .L_form_inner_div div {
+            height: 50px;
+            border-bottom: 1px solid #dddddd
+        }
+
+        .L_login_div {
+            height: 50px;
+            background: rgb(32, 90, 163);
+            width: 90%;
+            border-radius: 10px;
+            margin: 20px auto;
+            text-align: center
+        }
+
+        .L_login_btn {
+            line-height: 50px;
+            height: 50px;
+            color: white;
+            font-size: 20px;
+            width: 100%
+        }
+
+        input {
+            outline: medium;
+            background-color: transparent;
+            border: 0
+        }
+    </style>
+    <script src="Common.js" type="text/javascript"></script>
+</head>
+<body>
+    <header class="DS_header">
+        <span>登录</span>
+    </header>
+
+    <div class="L_second_div">
+        <img class="L_head_img" src="Resource/head.png" alt="">
+    </div>
+    <form action="">
+        <div class="L_form_div">
+            <div class="L_form_inner_div">
+                <div>
+                    <span>账号名:</span>
+                    <input id="L_account" type="text" name="account" value="123"><br>
+                </div>
+                <div>
+                    <span>密码:</span>
+                    <input id="L_pwd" type="password" name="password" value="123"><br>
+                </div>
+            </div>
+        </div>
+        <div>
+            <div class="L_login_div">
+                <input class="L_login_btn" type="button" onclick="Login()" value="登录" id="btn">
+            </div>
+        </div>
+    </form>
+        <script type="application/javascript">
+            function Login() {
+                //1.创建一个请求对象（负责去服务端要数据）
+
+
+                //4.发送请求
+                var username = encodeURIComponent(document.querySelector("#L_account").value);
+                var pwd = encodeURIComponent(document.querySelector("#L_pwd").value);
+                var path = "username="+username+ "&pwd="+ pwd;
+                text('post','login',path,function(result){
+                    if (result == "登录成功"){
+                        location.href = "MyDroplet.html";
+                    }else {
+                        alert("登录失败！")
+                    }
+                });
+            }
+        </script>
+</body>
+</html>
+
+
+
+
+
+
+
